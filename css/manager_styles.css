@@ -1,0 +1,125 @@
+/* Container */
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    max-width: 800px;
+}
+
+/* Heading Styles */
+.container h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgb(33, 37, 41);
+}
+
+.container p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: rgb(73, 80, 87);
+}
+
+/* Process List */
+.process-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.process-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid rgb(222, 226, 230);
+    border-radius: 8px;
+    background-color: rgb(248, 249, 250);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.process-item span {
+    font-size: 16px;
+    color: rgb(33, 37, 41);
+}
+
+.process-item button {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(220, 53, 69); /* Red button for "Kill" */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.process-item button:hover {
+    background-color: rgb(200, 35, 50);
+}
+
+/* Dark Theme Styles */
+body.dark-theme .container h1 {
+    color: rgb(224, 224, 224);
+}
+
+body.dark-theme .container p {
+    color: rgb(153, 153, 153);
+}
+
+body.dark-theme .process-item {
+    background-color: rgb(33, 37, 41);
+    border: 1px solid rgb(85, 85, 85);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .process-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-theme .process-item span {
+    color: rgb(224, 224, 224);
+}
+
+body.dark-theme .process-item button {
+    background-color: rgb(200, 35, 50);
+}
+
+body.dark-theme .process-item button:hover {
+    background-color: rgb(180, 20, 40);
+}
+
+
+
+
+
+/* Dark Theme for Process List */
+body.dark-theme .process-list {
+    background-color: rgb(33, 37, 41);
+    border: 1px solid rgb(85, 85, 85);
+}
+
+body.dark-theme .process-item {
+    background-color: rgb(33, 37, 41);
+    color: rgb(224, 224, 224);
+    border: 1px solid rgb(85, 85, 85);
+}
+
+body.dark-theme .process-item button {
+    background-color: rgb(102, 178, 255);
+    color: rgb(255, 255, 255);
+}
+
+body.dark-theme .process-item button:hover {
+    background-color: rgb(51, 153, 255);
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/manager_styles.css">
+    <script defer src="../js/theme-switch.js"></script>
+
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="container">
+                <!-- <a href="index.html" class="logo">Remote PC Control</a> -->
+                <ul class="nav-links">
+                    <li><a href="../pages/apps.html" class="active">Go back</a></li>
+                    <li><a href="../pages/help.html">Help</a></li>
+                </ul>
+                <div class="switch-component">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Switch Theme</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+            <div class="container">
+            <h1>Remote PC Control</h1>
+            <p>Manage and control your remote PC directly from your browser. Below is a list of currently running processes that you can manage.</p>
+
+            <h2>Running Processes</h2>
+            <ul class="process-list" id="process-list">
+                <!-- Process items will be dynamically added here -->
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        const processes = [
+            { id: 1, name: 'Steam' },
+            { id: 2, name: 'Discord' },
+            { id: 3, name: 'Chrome' },
+            { id: 4, name: 'File Explorer' },
+            { id: 5, name: 'Spotify' },
+            { id: 6, name: 'Remote Desktop' }
+        ];
+
+        function renderProcesses() {
+            const processList = document.getElementById('process-list');
+            processList.innerHTML = '';
+            processes.forEach(process => {
+                const listItem = document.createElement('li');
+                listItem.className = 'process-item';
+                listItem.innerHTML = `
+                    <span>${process.name}</span>
+                    <button onclick="killProcess(${process.id})">Kill</button>
+                `;
+                processList.appendChild(listItem);
+            });
+        }
+
+        function killProcess(id) {
+            if (id === 6) {
+            const confirmAction = confirm("Are you sure you want to kill 'Remote Desktop'? This will make the remote PC unreachable.");
+            if (confirmAction) {
+                window.location.href = "../index.html";
+                return;
+            }
+            }
+            setTimeout(() => {
+            const index = processes.findIndex(process => process.id === id);
+            if (index !== -1) {
+                processes.splice(index, 1);
+                renderProcesses();
+            }
+            }, 500);
+        }
+        renderProcesses();
+    </script>
+</body>
+</html>

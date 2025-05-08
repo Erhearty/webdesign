@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Files Explorer</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/files_styles.css">
+    <script defer src="../js/theme-switch.js"></script>
+
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="container">
+                <!-- <a href="index.html" class="logo">Remote PC Control</a> -->
+                <ul class="nav-links">
+                    <li><a href="../pages/apps.html" class="active">Go back</a></li>
+                    <li><a href="../pages/help.html">Help</a></li>
+                </ul>
+                <div class="switch-component">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Switch Theme</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>File Explorer</h1>
+            <p>Browse and manage your files and folders with ease.</p>
+            
+            <div class="file-explorer">
+                <div class="file-explorer-header" id="file-explorer-header">
+                    <span id="current-location">Current Location: home</span>
+                    <button id="back-button">Back</button>
+                </div>
+                <div class="file-explorer-content" id="file-explorer-content">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const fileStructure = {
+            "home": {
+                "Documents": {
+                    "file1.txt": "File 1 content",
+                    "file2.txt": "File 2 content"
+                },
+                "Pictures": {
+                    "image1.png": "Image 1 content",
+                    "image2.png": "Image 2 content"
+                },
+                "Music": {
+                    "song1.mp3": "Song 1 content",
+                    "song2.mp3": "Song 2 content"
+                },
+                "Homework": {
+                    "homework1.docx": "Homework 1 content",
+                    "homework2.docx": "Homework 2 content",
+                    "don't look here": {
+                        "It is really a homework": {
+                            "Stop looking": {
+                                "Final warning": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        let currentPath = "home";
+
+        function renderFileExplorer(path) {
+            const fileExplorerContent = document.getElementById('file-explorer-content');
+            const fileExplorerHeader = document.getElementById('current-location');
+            fileExplorerContent.innerHTML = '';
+            fileExplorerHeader.innerHTML = `Current Location: ${path}`;
+
+            const parts = path.split('/').filter(Boolean);
+            let currentDir = fileStructure;
+            for (const part of parts) {
+                if (currentDir[part]) {
+                    currentDir = currentDir[part];
+                } else {
+                    alert('Invalid path');
+                    return;
+                }
+            }
+
+            for (const key in currentDir) {
+                const item = document.createElement('div');
+                item.className = 'file-item';
+                if (typeof currentDir[key] === 'object') {
+                    item.innerHTML = `<img src="../assets/images/files.png" alt="Folder Icon"><span>${key}</span>`;
+                    item.addEventListener('click', () => {
+                        currentPath += `/${key}`;
+                        renderFileExplorer(currentPath);
+                    });
+                } else if (typeof currentDir[key] === 'string' && currentDir[key].startsWith('http')) {
+                    item.innerHTML = `<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJsAAACUCAMAAACz6atrAAAAY1BMVEX///8AAABqamoVFRXi4uLq6uqoqKjZ2dn39/fz8/N9fX1AQECkpKQiIiLc3Ny/v7+bm5uurq5OTk42NjYsLCzT09PMzMy2trYnJycPDw8cHBxWVlaOjo5JSUleXl6Hh4d0dHRVSNdBAAADN0lEQVR4nO2c6bKiMBBGo6wKXlR29/d/ypHlDjCGAJ0vljX2+RvTnIokdJpFCIZh5uA7ni6OGTPnEiQ7XZJruMGrpckKQ+Kh1bwYpLZaxWA5P4CpPUmhbmkdcxvq4cYmRu5Shcy0w5xNjNyjCqgf5vjrhpwQ62c8Sz9M5VbsVpg/4RegWxCV2JEDusUiqwfuhBo5qJvI65HbgSYE1k1EViVXYEYO7NbKlZBzDu0molM9IRAjB3drRw6xCOPdWrlYX86Am8hKzCJswq1dSrQXYSNuIoWMnBk30Vy+Cr2RM+Qm0npCWJFOUFNu7Ww96cxWY24i2+levsy5tVcIjUXYoJvICr3LF8itCrN62ds3W9+SKvePm+0eVLj5SG3BrSSuYT78ef5o9hDEv3XodnjZcb4gX7IcS9Xn6APcZuzxt/I4obITbeCGbmflEWouI4GUcmOdlrilxZRaPFrMim7jvR4At+eJM4Eqlu/YrzjVKreGuOGx2I0Eu9FgNxrsRoPdaLAbDZhbupfwN9W1Q1mzjF4yiXIbSRAPTevPVHLXI4S7jdwSPDet9wVuCdxtJHV9NK3qPcGQG9zNk24Ybj9Nq7+erXbutmOwueDL8nBf2Sqlt+n7ijXEAOxGg91osBsNdqOBc9tgMODm3OM40CeO710xDOW2XZAFqelKryi3E8ztBHe7wNy6Ci9sLuRbDHkX8jvWEDzsRoPdaLAbDXaj8RVum2geeeYru/SSS5RbPj/RsNrsMZI3dxd7lNuSZ/LbLGikZNc9LIJyO8oPJGXfBZBwhLs1zxDNImhPKfmrGbvueRXcPP2Zia3u0ov4FWuIAdiNBrvRYDca7EYD5+ZjMOC22a8x7Lvk8htqg8qnTRcxjIlwW3LXW80d7vbJ59snz1MTsBsNdqPBbjTYjQa7yfFlnxMxUBskkEprdomJOhIpgITrJ7iN1C2DT3B7W72XgrRO3nvnh9cQGuxGg91osBsNdqPx/7qVYJshJdmtrmrZ078jY1cHuE//TkJ9F/ycSV4GxpCdhxnTEjaTb18DKIif+3Pf4ObS1N4hR1Z7ZtVLniBYzlHr2yu+F7mmiDzatxwYhvkg/gDQa03TEoPAAAAAAABJRU5ErkJggg==" alt="File Icon"><span>${key}</span>`;
+                    item.addEventListener('click', () => {
+                        window.location.href = currentDir[key];
+                    });
+                } else {
+                    item.innerHTML = `<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJsAAACUCAMAAACz6atrAAAAY1BMVEX///8AAABqamoVFRXi4uLq6uqoqKjZ2dn39/fz8/N9fX1AQECkpKQiIiLc3Ny/v7+bm5uurq5OTk42NjYsLCzT09PMzMy2trYnJycPDw8cHBxWVlaOjo5JSUleXl6Hh4d0dHRVSNdBAAADN0lEQVR4nO2c6bKiMBBGo6wKXlR29/d/ypHlDjCGAJ0vljX2+RvTnIokdJpFCIZh5uA7ni6OGTPnEiQ7XZJruMGrpckKQ+Kh1bwYpLZaxWA5P4CpPUmhbmkdcxvq4cYmRu5Shcy0w5xNjNyjCqgf5vjrhpwQ62c8Sz9M5VbsVpg/4RegWxCV2JEDusUiqwfuhBo5qJvI65HbgSYE1k1EViVXYEYO7NbKlZBzDu0molM9IRAjB3drRw6xCOPdWrlYX86Am8hKzCJswq1dSrQXYSNuIoWMnBk30Vy+Cr2RM+Qm0npCWJFOUFNu7Ww96cxWY24i2+levsy5tVcIjUXYoJvICr3LF8itCrN62ds3W9+SKvePm+0eVLj5SG3BrSSuYT78ef5o9hDEv3XodnjZcb4gX7IcS9Xn6APcZuzxt/I4obITbeCGbmflEWouI4GUcmOdlrilxZRaPFrMim7jvR4At+eJM4Eqlu/YrzjVKreGuOGx2I0Eu9FgNxrsRoPdaLAbDZhbupfwN9W1Q1mzjF4yiXIbSRAPTevPVHLXI4S7jdwSPDet9wVuCdxtJHV9NK3qPcGQG9zNk24Ybj9Nq7+erXbutmOwueDL8nBf2Sqlt+n7ijXEAOxGg91osBsNdqOBc9tgMODm3OM40CeO710xDOW2XZAFqelKryi3E8ztBHe7wNy6Ci9sLuRbDHkX8jvWEDzsRoPdaLAbDXaj8RVum2geeeYru/SSS5RbPj/RsNrsMZI3dxd7lNuSZ/LbLGikZNc9LIJyO8oPJGXfBZBwhLs1zxDNImhPKfmrGbvueRXcPP2Zia3u0ov4FWuIAdiNBrvRYDca7EYD5+ZjMOC22a8x7Lvk8htqg8qnTRcxjIlwW3LXW80d7vbJ59snz1MTsBsNdqPBbjTYjQa7yfFlnxMxUBskkEprdomJOhIpgITrJ7iN1C2DT3B7W72XgrRO3nvnh9cQGuxGg91osBsNdqPx/7qVYJshJdmtrmrZ078jY1cHuE//TkJ9F/ycSV4GxpCdhxnTEjaTb18DKIif+3Pf4ObS1N4hR1Z7ZtVLniBYzlHr2yu+F7mmiDzatxwYhvkg/gDQa03TEoPAAAAAAABJRU5ErkJggg==" alt="File Icon"><span>${key}</span>`;
+                }
+                fileExplorerContent.appendChild(item);
+            }
+        }
+
+        document.getElementById('back-button').addEventListener('click', () => {
+            const parts = currentPath.split('/').filter(Boolean);
+            if (parts.length > 1) {
+                parts.pop();
+                currentPath = parts.join('/');
+                renderFileExplorer(currentPath);
+            } else {
+                currentPath = "home";
+                renderFileExplorer(currentPath);
+            }
+        });
+
+        renderFileExplorer(currentPath);
+    </script>
+</body>
+</html>

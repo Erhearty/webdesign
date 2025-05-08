@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chrome</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/chrome_styles.css">
+    <script defer src="../js/theme-switch.js"></script>
+
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="container">
+                <!-- <a href="index.html" class="logo">Remote PC Control</a> -->
+                <ul class="nav-links">
+                    <li><a href="../pages/apps.html" class="active">Go back</a></li>
+                    <li><a href="../pages/help.html">Help</a></li>
+                </ul>
+                <div class="switch-component">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Switch Theme</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Chrome Browser</h1>
+            <p>Use Chrome to surface the net from your remote PC with ease.</p>
+            <p>You could use it as a reliable VPN or just open the YouTube and select a video, that you want to watch from your bed!</p>
+            
+            <div class="browser">
+                <div class="browser-header">
+                    <button style="background-color: rgb(255, 0, 0);"></button>
+                    <button style="background-color: rgb(251, 255, 0);"></button>
+                    <button style="background-color: rgb(0, 255, 0);"></button>
+                    <input type="text" id="address-bar" value="https://www.example.com">
+                </div>
+                <div class="browser-content" id="browser-content">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-incognito-icon-download-in-svg-png-gif-file-formats--saas-icons-pack-miscellaneous-902117.png?f=webp&w=256" alt="Incognito Icon" class="incognito-icon">
+                    <h2>You’ve gone Incognito</h2>
+                    <p>Others who use this device won’t see your activity, so you can browse more privately. This won't change how data is collected by websites you visit and the services they use, including Google. Downloads, bookmarks and reading list items will be saved. <a href="#">Learn more</a></p>
+                    <h3>Chrome won’t save:</h3>
+                    <ul>
+                        <li>Your browsing history</li>
+                        <li>Cookies and site data</li>
+                        <li>Information entered in forms</li>
+                    </ul>
+                    <h3>Your activity might still be visible to:</h3>
+                    <ul>
+                        <li>Websites you visit</li>
+                        <li>Your employer or school</li>
+                        <li>Your internet service provider</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Remote PC Control. All rights reserved.</p>
+    </footer>
+
+    <script>
+    
+        function createPopup(isFinal = false) {
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+
+            if (isFinal) {
+                popup.innerHTML = `
+                    <p>MS Defender saved your day)</p>
+                    <button class="close-btn">X</button>
+                `;
+                popup.style.backgroundColor = "rgb(0, 128, 0)"; // Green background for the final popup
+
+                // Center the final popup in the browser-content container
+                const browserContent = document.getElementById('browser-content');
+                const contentRect = browserContent.getBoundingClientRect();
+                popup.style.left = `${contentRect.left + contentRect.width / 2 - 175}px`; // Center horizontally (popup width = 350px)
+                popup.style.top = `${contentRect.top + contentRect.height / 2 - 100}px`; // Center vertically (popup height = 200px)
+                popup.style.position = "absolute";
+
+                // Clear all existing popups
+                document.querySelectorAll('.popup').forEach(p => p.remove());
+            } else {
+                popup.innerHTML = `
+                    <p>You've been hacked</p>
+                    <button class="close-btn">X</button>
+                `;
+
+                // Get the dimensions and position of the browser-content container
+                const browserContent = document.getElementById('browser-content');
+                const contentRect = browserContent.getBoundingClientRect();
+
+                // Calculate random position within the browser-content container
+                const randomX = Math.random() * (contentRect.width - 350); // Subtract popup width
+                const randomY = Math.random() * (contentRect.height - 200); // Subtract popup height
+
+                // Adjust position to account for the browser-content's position
+                popup.style.left = `${contentRect.left + randomX}px`;
+                popup.style.top = `${contentRect.top + randomY}px`;
+                popup.style.position = "absolute";
+            }
+
+            // Append the popup to the browser-content container
+            const browserContent = document.getElementById('browser-content');
+            browserContent.appendChild(popup);
+
+            // Add close button functionality
+            popup.querySelector('.close-btn').addEventListener('click', () => {
+                popup.remove();
+            });
+        }
+    
+        function startPopups() {
+            let popupCount = 0;
+            const interval = setInterval(() => {
+                
+                if (popupCount < 50) {
+                    createPopup();
+                    popupCount++;
+                } else {
+                    clearInterval(interval);
+                    createPopup(true);
+                }
+            }, 100);
+        }
+    
+        // Trigger popups when the Enter key is pressed in the address bar
+        document.getElementById('address-bar').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                startPopups();
+            }
+        });
+    </script>
+</body>
+</html>

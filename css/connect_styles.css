@@ -1,0 +1,180 @@
+/* Getting Started Page Styles */
+.getting-started-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.login-container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.login-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: rgb(33, 37, 41);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: rgb(73, 80, 87);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid rgb(222, 226, 230);
+    border-radius: 4px;
+    background-color: rgb(248, 249, 250);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: rgb(0, 123, 255);
+    outline: none;
+}
+
+#loginButton {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 123, 255);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#loginButton:hover {
+    background-color: rgb(0, 86, 179);
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-login button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent; /* Set button background to transparent */
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the icon fits within the button */
+}
+
+.social-login button img {
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+    object-fit: contain; /* Ensures the icon scales properly */
+    background-color: transparent; /* Ensures the icon itself has no background */
+}
+
+.signup-redirect {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-redirect a {
+    color: rgb(0, 123, 255);
+    text-decoration: none;
+}
+
+.signup-redirect a:hover {
+    text-decoration: underline;
+}
+
+.status-message {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.step {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid rgb(222, 226, 230);
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: rgb(33, 37, 41);
+}
+
+.step p {
+    font-size: 14px;
+    color: rgb(73, 80, 87);
+}
+
+/* Animation for Steps */
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.step {
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.step:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.step:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.step:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.step:nth-child(4) {
+    animation-delay: 0.6s;
+}

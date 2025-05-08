@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote PC Control</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/theme-switch.js"></script>
+    <script defer src="js/hamburger.js"></script>
+    <style>
+        /* Features Section */
+        .features {
+            padding: 40px 20px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: rgb(33, 37, 41);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid rgb(222, 226, 230);
+            border-radius: 8px;
+            background-color: rgb(248, 249, 250);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        /* Dark Theme Features */
+        body.dark-theme .features {
+            background-color: rgb(18, 18, 18);
+        }
+
+        body.dark-theme .features h2 {
+            color: rgb(224, 224, 224);
+        }
+
+        body.dark-theme .feature-item {
+            background-color: rgb(33, 37, 41);
+            border: 1px solid rgb(85, 85, 85);
+        }
+
+        body.dark-theme .feature-item h3 {
+            color: rgb(224, 224, 224);
+        }
+
+        body.dark-theme .feature-item p {
+            color: rgb(153, 153, 153);
+        }
+
+        /* Secure Icon Animation */
+        /* :::::::::::::: Secure Icon Animation :::::::::::::: */
+        .secure-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background-color: rgb(240, 248, 255);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* :::::::::::::: Presentation CSS :::::::::::::: */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            --locked-color: #5fadbf;
+            --unlocked-color: #ff5153;
+        }
+
+        /* Locked State */
+        .lock {
+            width: 24px;
+            height: 21px;
+            border: 3px solid var(--locked-color);
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+        }
+        .lock:after {
+            content: "";
+            display: block;
+            background: var(--locked-color);
+            width: 3px;
+            height: 7px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -3.5px 0 0 -2px;
+            transition: all 0.1s ease-in-out;
+        }
+        .lock:before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            bottom: 100%;
+            position: absolute;
+            left: 50%;
+            margin-left: -8px;
+            border: 3px solid var(--locked-color);
+            border-top-right-radius: 50%;
+            border-top-left-radius: 50%;
+            border-bottom: 0;
+            transition: all 0.1s ease-in-out;
+        }
+
+        /* Locked Hover */
+        .lock:hover:before {
+            height: 12px;
+        }
+
+        /* Unlocked State */
+        .unlocked {
+            transform: rotate(10deg);
+        }
+        .unlocked:before {
+            bottom: 130%;
+            left: 31%;
+            margin-left: -11.5px;
+            transform: rotate(-45deg);
+        }
+        .unlocked,
+        .unlocked:before {
+            border-color: var(--unlocked-color);
+        }
+        .unlocked:after {
+            background: var(--unlocked-color);
+        }
+
+        /* Unlocked Hover */
+        .unlocked:hover {
+            transform: rotate(3deg);
+        }
+        .unlocked:hover:before {
+            height: 10px;
+            left: 40%;
+            bottom: 124%;
+            transform: rotate(-30deg);
+        }
+
+
+        /* Reliable Icon Animation */
+        .reliable-icon {
+            position: relative;
+            width: 5.4em;
+            height: 5.4em;
+            margin: 0 auto 15px;
+            background-color: #404456;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        #hill {
+            position: absolute;
+            width: 7.1em;
+            height: 7.1em;
+            top: 1.7em;
+            left: 1.7em;
+            background-color: transparent;
+            border-left: 0.25em solid whitesmoke;
+            transform: rotate(45deg);
+        }
+
+        #hill:after {
+            content: '';
+            position: absolute;
+            width: 7.1em;
+            height: 7.1em;
+            left: 0;
+            background-color: #404456;
+        }
+
+        #box {
+            position: absolute;
+            left: 0;
+            bottom: -0.1em;
+            width: 1em;
+            height: 1em;
+            background-color: transparent;
+            border: 0.25em solid whitesmoke;
+            border-radius: 15%;
+            transform: translate(0, -1em) rotate(-45deg);
+            animation: push 2.5s cubic-bezier(0.79, 0, 0.47, 0.97) infinite;
+        }
+
+        @keyframes push {
+            0% {
+                transform: translate(0, -1em) rotate(-45deg);
+            }
+            5% {
+                transform: translate(0, -1em) rotate(-50deg);
+            }
+            20% {
+                transform: translate(1em, -2em) rotate(47deg);
+            }
+            25% {
+                transform: translate(1em, -2em) rotate(45deg);
+            }
+            30% {
+                transform: translate(1em, -2em) rotate(40deg);
+            }
+            45% {
+                transform: translate(2em, -3em) rotate(137deg);
+            }
+            50% {
+                transform: translate(2em, -3em) rotate(135deg);
+            }
+            55% {
+                transform: translate(2em, -3em) rotate(130deg);
+            }
+            70% {
+                transform: translate(3em, -4em) rotate(217deg);
+            }
+            75% {
+                transform: translate(3em, -4em) rotate(220deg);
+            }
+            100% {
+                transform: translate(0, -1em) rotate(-225deg);
+            }
+        }
+
+
+        /* Easy Icon Animation */
+
+        .easy-icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background-color: rgb(137, 189, 234);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .sun {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(255, 223, 0);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: rise 3s ease-in-out infinite;
+            z-index: 1; /* Lower layer */
+        }
+
+        .cloud {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 60px;
+            height: 10px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%; /* Makes the cloud circular */
+            transform: translateX(-50%);
+            z-index: 2; /* Upper layer */
+        }
+
+        .cloud:before,
+        .cloud:after {
+            content: '';
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+        }
+
+        .cloud:before {
+            width: 40px;
+            height: 40px;
+            top: -15px;
+            left: -20px;
+        }
+
+        .cloud:after {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            right: -15px;
+        }
+
+        @keyframes rise {
+            0%, 100% {
+                bottom: -30px;
+            }
+            50% {
+                bottom: 20px;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateX(-50%);
+            }
+            50% {
+                transform: translateX(-55%);
+            }
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: rgb(33, 37, 41);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        /* Mobile Style */
+        @media (max-width: 768px) {
+            header .container {
+                flex-wrap: wrap; /* Allows wrapping for smaller screens */
+            }
+
+            header .nav-links {
+                display: none; /* Hidden by default on smaller screens */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left:  0;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+
+            header .nav-links.open {
+                display: flex; /* Displayed when the hamburger menu is active */
+            }
+
+            .hamburger-menu {
+                display: flex; /* Displayed on smaller screens */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="container">
+                <a href="index.html" class="logo">Remote PC Control</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+                <div class="switch-component">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Switch Theme</span>
+                </div>
+            </div>
+            <button class="hamburger-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Remote PC Control</h1>
+                <p>Connect and control your PC from anywhere in the world with our secure and reliable platform.</p>
+                <a href="pages/connect.html" class="btn">Get Started</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Remote PC Control?</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon secure-icon">
+                            <div class="lock"></div>
+                        </div>
+                        <h3>Secure</h3>
+                        <p>Our platform ensures your data is protected with end-to-end encryption.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="reliable-icon">
+                            <div id="hill"></div>
+                            <div id="box"></div>
+                        </div>
+                        <h3>Reliable</h3>
+                        <p>Experience seamless remote access with minimal latency and high uptime.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon easy-icon">
+                            <div class="cloud"></div>
+                            <div class="sun"></div>
+                        </div>
+                        <h3>Easy to Use</h3>
+                        <p>Our intuitive interface makes it simple to connect and control your PC remotely.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="use-cases">
+            <div class="container">
+                <h2>What Can You Do?</h2>
+                <div class="use-case-grid">
+                    <div class="use-case-item">
+                        <h3>Access Files</h3>
+                        <p>Retrieve important documents and files from your PC, no matter where you are.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <h3>Run Applications</h3>
+                        <p>Launch and use applications on your remote PC as if you were sitting in front of it.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <h3>Monitor Performance</h3>
+                        <p>Keep an eye on your PC's performance with real-time monitoring tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Our Users Say</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial-item active">
+                        <p>"Remote PC Control has revolutionized the way I work remotely. The connection is seamless and secure."</p>
+                        <h4>Alex Johnson</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"I love how easy it is to use. I can access my PC from anywhere without any hassle."</p>
+                        <h4>Sarah Lee</h4>
+                        <p>Freelancer</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"The reliability of Remote PC Control is unmatched. It feels like I'm sitting right in front of my PC."</p>
+                        <h4>Michael Brown</h4>
+                        <p>IT Manager</p>
+                    </div>
+                </div>
+                <button class="next-testimonial-btn">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/arrow-direction/next-button-icon.svg" alt="Next">
+                </button>
+            </div>
+        </section>
+
+        <!-- Showcase Section -->
+        <section class="showcase">
+            <div class="container">
+                <h2>See It in Action</h2>
+                <div class="media-player">
+                    <video controls>
+                        <source src="/assets/videos/Showcase.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Join thousands of users who trust Remote PC Control for their remote access needs.</p>
+                <a href="pages/connect.html" class="btn">Connect Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Remote PC Control. All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>
+            <button class="back-to-top" onclick="scrollToTop()">Back to Top</button>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <script>
+        // Secure Icon Animation Logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const lockElement = document.querySelector(".lock");
+    
+            setInterval(() => {
+                lockElement.classList.toggle("unlocked");
+            }, 1000); // Toggles every 3 seconds
+        });
+    </script>
+</body>
+</html>

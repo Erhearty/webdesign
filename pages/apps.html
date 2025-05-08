@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apps</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/apps_styles.css">
+    <script defer src="../js/theme-switch.js"></script>
+    <script defer src="../js/logout-confirmation.js"></script>
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="container">
+                <a href="../index.html" class="logo">Remote PC Control</a>
+                <ul class="nav-links">
+                    <li><a href="#" id="logout-link"class="active">Logout</a></li>
+                    <li><a href="../pages/help.html">Help</a></li>
+                </ul>
+                
+                <div class="switch-component">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Switch Theme</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="apps">
+            <h1>Available Apps</h1>
+        </div>
+        <div class="apps-grid">
+            <div class="app-item">
+                <a href="../pages/chrome.html">
+                    <div class="app-left">
+                        <img src="../assets/images/chrome.png" alt="Chrome Icon" class="app-icon">
+                        <h3>Chrome</h3>
+                    </div>
+                </a>
+                <div class="app-right">
+                    <p>Browse the web securely and efficiently with Google Chrome.</p>
+                    <h4>Use Cases:</h4>
+                    <ul>
+                        <li>Access websites securely.</li>
+                        <li>Stream videos on YouTube.</li>
+                        <li>Use Chrome extensions for productivity.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app-item">
+                <a href="../pages/files.html">
+                    <div class="app-left">
+                        <img src="../assets/images/files.png" alt="Files Icon" class="app-icon">
+                        <h3>Files</h3>
+                    </div>
+                </a>
+                <div class="app-right">
+                    <p>Manage your files and folders with ease.</p>
+                    <h4>Use Cases:</h4>
+                    <ul>
+                        <li>Organize documents and media files.</li>
+                        <li>Access files remotely.</li>
+                        <li>Share files securely.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app-item">
+                <a href="../pages/music.html">
+                    <div class="app-left">
+                        <img src="../assets/images/music.png" alt="Music Icon" class="app-icon">
+                        <h3>Music</h3>
+                    </div>
+                </a>
+                <div class="app-right">
+                    <p>Listen to your favorite music tracks.</p>
+                    <h4>Use Cases:</h4>
+                    <ul>
+                        <li>Create playlists for different moods.</li>
+                        <li>Stream music from your PC remotely.</li>
+                        <li>Organize your music library.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app-item">
+                <a href="../pages/taskmanager.html">
+                    <div class="app-left">
+                        <img src="../assets/images/taskmanager.png" alt="Task Manager Icon" class="app-icon">
+                        <h3>Task Manager</h3>
+                    </div>
+                </a>
+                <div class="app-right">
+                    <p>Monitor and manage your system tasks.</p>
+                    <h4>Use Cases:</h4>
+                    <ul>
+                        <li>Track CPU and memory usage.</li>
+                        <li>End unresponsive tasks remotely.</li>
+                        <li>Optimize system performance.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="logout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to logout?</p>
+            <button id="confirm-logout" class="btn">Yes, Logout</button>
+            <button id="cancel-logout" class="btn">Cancel</button>
+        </div>
+    </div>
+    <div id="logout-page-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1>You have been logged out</h1>
+            <p>Thank you for using Remote PC Control. You have successfully logged out.</p>
+            <a href="connect.html" class="btn">Login Again</a>
+            <a href="../index.html" class="btn">Go to Home</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+
+
+header .nav-links {
+    display: flex !important; /* Ensure nav-links are always visible */
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Browser Styles */
+.browser {
+    background-color: rgb(48, 52, 54); /* Darker background for the browser */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    margin-top: 20px;
+    
+}
+
+.browser-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(66, 69, 73); /* Header background */
+    border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+.browser-header button {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.browser-header input {
+    flex: 1;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid rgb(85, 85, 85);
+    border-radius: 4px;
+    background-color: rgb(33, 37, 41);
+    color: rgb(224, 224, 224);
+    outline: none;
+}
+
+.browser-header input::placeholder {
+    color: rgb(153, 153, 153);
+}
+
+.browser-content {
+    padding: 20px;
+    text-align: left;
+    color: rgb(224, 224, 224);
+    text-align: center; /* Center align the list items */
+
+}
+
+.browser-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.browser-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: rgb(224, 224, 224);
+}
+
+.browser-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgb(192, 192, 192);
+}
+
+.browser-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.browser-content ul li {
+    font-size: 14px;
+    color: rgb(192, 192, 192);
+    margin-bottom: 5px;
+    text-align: left; /* Center align the list items */
+
+}
+
+/* Incognito Icon */
+.incognito-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    width: 350px; /* Increased width */
+    height: 200px; /* Increased height */
+    padding: 20px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeIn 0.5s ease;
+    overflow: hidden;
+    text-align: center; /* Center-align the text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.popup p {
+    margin: 0 0 15px;
+    font-size: 18px; /* Increased font size */
+}
+
+/* Close Button */
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 16px; /* Small X */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.popup .close-btn:hover {
+    color: rgb(255, 200, 200);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
+/* Dark Theme for Browser */
+body.dark-theme .browser {
+    background-color: rgb(33, 37, 41);
+    border: 1px solid rgb(85, 85, 85);
+}
+
+body.dark-theme .browser-header {
+    background-color: rgb(51, 51, 51);
+    border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+body.dark-theme .browser-header input {
+    background-color: rgb(33, 37, 41);
+    color: rgb(224, 224, 224);
+    border: 1px solid rgb(85, 85, 85);
+}
+
+body.dark-theme .browser-content {
+    color: rgb(153, 153, 153);
+}
+
+body.dark-theme .browser-content h2,
+body.dark-theme .browser-content h3 {
+    color: rgb(224, 224, 224);
+}

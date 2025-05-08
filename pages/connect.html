@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - Remote PC Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/connect_styles.css">
+    <script defer src="../js/theme-switch.js"></script>
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="container">
+                <a href="../index.html" class="logo">Remote PC Control</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="active">Home</a></li>
+                </ul>
+                <div class="switch-component">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Switch Theme</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="getting-started-container">
+
+        <!-- Steps Section -->
+        <div class="steps-container">
+            <div class="step">
+                <h3>Step 1</h3>
+                <p>Download "Remote PC Control Client"</p>
+            </div>
+            <div class="step">
+                <h3>Step 2</h3>
+                <p>Create an account</p>
+            </div>
+            <div class="step">
+                <h3>Step 3</h3>
+                <p>Login on the client</p>
+            </div>
+            <div class="step">
+                <h3>Step 4</h3>
+                <p>Enjoy connection to your PC from the web</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h1>Login to Remote PC Control</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" id="loginButton">Login</button>
+            <div id="statusMessage" class="status-message"></div>
+        </form>
+        <div class="social-login">
+            <button><img src="../assets/images/google-icon.png" alt="Google"></button>
+            <button><img src="../assets/images/facebook-icon.png" alt="Facebook"></button>
+            <button><img src="../assets/images/github-icon.png" alt="GitHub"></button>
+        </div>
+        <div class="signup-redirect">
+            <p>Not joined yet? <a href="../pages/apps.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Remote PC Control. All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>        </div>
+    </footer>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "password") {
+                document.getElementById("statusMessage").textContent = "Login successful!";
+                document.getElementById("statusMessage").style.color = "green";
+                setTimeout(() => {
+                    window.location.href = "../pages/apps.html"; // Redirect to the homepage
+                }, 1000);
+            } else {
+                document.getElementById("statusMessage").textContent = "Invalid username or password.";
+                document.getElementById("statusMessage").style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>

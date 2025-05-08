@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playback</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/playback_styles.css">
+    <script defer src="../js/playback.js"></script>
+    <script defer src="../js/theme-switch.js"></script>
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="../pages/music.html" class="active">Go back</a></li>
+                </ul>
+                <div class="switch-component">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Switch Theme</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="current-playback">
+                <h1 id="current-track">Now Playing: </h1>
+                <img id="cover-image" src="../assets/images/cover.png" alt="Track Cover" class="track-cover">
+                <div class="playback-controls">
+                    <button id="prev-button" class="control-button">⏮</button>
+                    <button id="play-pause" class="control-button play-pause"></button>
+                    <input id="progress-bar" type="range" min="0" max="100" value="0" class="progress-bar">
+                    <div class="playback-timing">
+                        <span id="current-time">0:00</span>
+                        <span id="total-duration">/ 0:00</span>
+                    </div>
+                    <button id="next-button" class="control-button">⏭</button>
+                </div>
+            </div>
+            <div class="will-play-next hidden" id="will-play-next">
+                <h2>Will Play Next</h2>
+                <ul id="next-tracks"></ul>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
