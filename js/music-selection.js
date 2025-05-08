@@ -91,8 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="name">${item.name}</div>
                     <div class="duration">${item.duration}</div>
                 `;
-    
-                // Add click event for the entire list item
+
                 listItem.addEventListener("click", () => {
                     if (selectedItems.has(item.id)) {
                         selectedItems.delete(item.id);
@@ -105,10 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     playButton.classList.toggle("hidden", selectedItems.size === 0);
                 });
     
-                // Add click event for the icon to play only this item
+
                 const icon = listItem.querySelector(".icon");
                 icon.addEventListener("click", (event) => {
-                    event.stopPropagation(); // Prevent triggering the list item click
+                    event.stopPropagation(); 
                     const selectedMedia = mediaItems.find(
                         (media) => media.id === parseInt(icon.dataset.id)
                     );

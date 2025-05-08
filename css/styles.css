@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     background-color: rgb(250, 250, 250);
     color: rgb(33, 37, 41);
@@ -17,9 +17,9 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Dark Theme General Styles */
+
 body.dark-theme {
-    background-color: rgb(18, 18, 18); /* Matches the header and nav-links background */
+    background-color: rgb(18, 18, 18);
     color: rgb(224, 224, 224);
 }
 
@@ -31,7 +31,7 @@ body.dark-theme a:hover {
     color: rgb(153, 204, 255);
 }
 
-/* Header */
+
 header {
     background-color: rgb(255, 255, 255);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -43,9 +43,9 @@ header {
 header .container {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Ensures all child elements are vertically centered */
+    align-items: center; 
     padding: 10px 20px;
-    flex-wrap: nowrap; /* Prevents wrapping of elements */
+    flex-wrap: nowrap;
 }
 
 header .nav-links {
@@ -54,7 +54,7 @@ header .nav-links {
     list-style: none;
     padding:0;
     margin-left: 20px;
-    align-items: center; /* Ensures nav-links are vertically aligned */
+    align-items: center; 
 }
 
 header .logo {
@@ -85,28 +85,28 @@ header .nav-links a:hover {
 
 
 
-/* Dark Theme Header */
+
 body.dark-theme header {
-    background-color: rgb(18, 18, 18); /* Matches the body background */
+    background-color: rgb(18, 18, 18); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 body.dark-theme header .nav-links {
-    background-color: transparent; /* Matches the header background */
-    box-shadow: none; /* Removes any shadow */
+    background-color: transparent; 
+    box-shadow: none; 
 }
 
 body.dark-theme header .nav-links a {
-    background-color: transparent; /* Ensures no background color is applied */
-    color: rgb(224, 224, 224); /* Matches the text color */
+    background-color: transparent; 
+    color: rgb(224, 224, 224);
 }
 
 body.dark-theme header .nav-links a.active {
-    color: rgb(102, 178, 255); /* Highlighted active link color */
+    color: rgb(102, 178, 255); 
 }
 
 body.dark-theme header .nav-links a:hover {
-    color: rgb(153, 204, 255); /* Hover color */
+    color: rgb(153, 204, 255); 
 }
 
 body.dark-theme .hamburger-menu span {
@@ -114,7 +114,7 @@ body.dark-theme .hamburger-menu span {
 }
 
 
-/* Hero Section */
+
 .hero {
     background-color: rgb(240, 248, 255);
     text-align: center;
@@ -149,7 +149,6 @@ body.dark-theme .hamburger-menu span {
 }
 
 
-/* Dark Theme Hero */
 body.dark-theme .hero {
     background-color: rgb(33, 37, 41);
 }
@@ -170,7 +169,7 @@ body.dark-theme .hero .btn:hover {
     background-color: rgb(51, 153, 255);
 }
 
-/* Use Cases Section */
+
 .use-cases {
     padding: 40px 20px;
     background-color: rgb(250, 250, 250);
@@ -214,7 +213,7 @@ body.dark-theme .hero .btn:hover {
     color: rgb(73, 80, 87);
 }
 
-/* Dark Theme Use Cases */
+
 body.dark-theme .use-cases {
     background-color: rgb(18, 18, 18);
 }
@@ -236,7 +235,7 @@ body.dark-theme .use-case-item p {
     color: rgb(153, 153, 153);
 }
 
-/* Testimonials Section */
+
 .testimonials {
     padding: 40px 20px;
     background-color: rgb(255, 255, 255);
@@ -254,9 +253,9 @@ body.dark-theme .use-case-item p {
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center; /* Vertically center testimonials */
+    align-items: center; 
     justify-content: center;
-    height: 150px; /* Adjust based on content */
+    height: 150px; 
 }
 
 .testimonial-item {
@@ -270,7 +269,7 @@ body.dark-theme .use-case-item p {
 }
 
 .testimonial-item.active {
-    left: 10%; /* Center the testimonial content */
+    left: 10%; 
     opacity: 1;
 }
 
@@ -317,7 +316,7 @@ body.dark-theme .use-case-item p {
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Dark Theme Testimonials */
+
 body.dark-theme .testimonials {
     background-color: rgb(18, 18, 18);
 }
@@ -342,7 +341,7 @@ body.dark-theme .next-testimonial-btn img {
     filter: invert(1);
 }
 
-/* Footer */
+
 footer {
     background-color: rgb(33, 37, 41);
     color: rgb(255, 255, 255);
@@ -387,7 +386,7 @@ footer p {
 }
 
 
-/* Dark Theme Footer */
+
 body.dark-theme footer {
     background-color: rgb(18, 18, 18);
 }
@@ -396,7 +395,7 @@ body.dark-theme footer .social-links a:hover {
     color: rgb(153, 204, 255);
 }
 
-/* Showcase Section */
+
 .showcase {
     padding: 40px 20px;
     background-color: rgb(255, 255, 255);
@@ -434,7 +433,7 @@ body.dark-theme footer .social-links a:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Theme Showcase */
+
 body.dark-theme .showcase {
     background-color: rgb(18, 18, 18);
 }
@@ -457,7 +456,7 @@ body.dark-theme .showcase video {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Call to Action Section */
+
 .cta {
     padding: 40px 20px;
     background-color: rgb(240, 248, 255);
@@ -492,7 +491,7 @@ body.dark-theme .showcase video {
     transform: translateY(-3px);
 }
 
-/* Dark Theme Call to Action */
+
 body.dark-theme .cta {
     background-color: rgb(33, 37, 41);
     border-top: 1px solid rgb(85, 85, 85);
@@ -514,14 +513,14 @@ body.dark-theme .cta .btn:hover {
     background-color: rgb(51, 153, 255);
 }
 
-/* Switch Component */
+
 .switch-component {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 16px;
     color: rgb(33, 37, 41);
-    margin-left: auto; /* Pushes the switch-component to the far right */
+    margin-left: auto; 
 }
 
 .switch {
@@ -569,7 +568,7 @@ input:checked + .slider:before {
     transform: translateX(20px);
 }
 
-/* Dark Theme Switch Component */
+
 body.dark-theme .switch-component {
     color: rgb(224, 224, 224);
 }
@@ -586,7 +585,7 @@ body.dark-theme input:checked + .slider {
 
 
 
-/* General Dark Theme Styles */
+
 body.dark-theme {
     background-color: rgb(18, 18, 18);
     color: rgb(224, 224, 224);
@@ -600,7 +599,7 @@ body.dark-theme a:hover {
     color: rgb(153, 204, 255);
 }
 
-/* Dark Theme for Buttons */
+
 body.dark-theme .btn {
     background-color: rgb(102, 178, 255);
     color: rgb(255, 255, 255);
@@ -610,7 +609,7 @@ body.dark-theme .btn:hover {
     background-color: rgb(51, 153, 255);
 }
 
-/* Dark Theme for Containers */
+
 body.dark-theme .container {
     background-color: rgb(33, 37, 41);
     border: 1px solid rgb(85, 85, 85);

@@ -1,5 +1,5 @@
 header .nav-links {
-    display: flex !important; /* Ensure nav-links are always visible */
+    display: flex !important; 
     gap: 20px;
     list-style: none;
     padding: 0;
@@ -8,7 +8,6 @@ header .nav-links {
 }
 
 
-/* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -16,7 +15,7 @@ header .nav-links {
     text-align: center;
 }
 
-/* Current Playback */
+
 .current-playback {
     text-align: center;
     margin: 20px 0;
@@ -33,7 +32,7 @@ audio {
     max-width: 600px;
 }
 
-/* Will Play Next */
+
 .will-play-next {
     margin-top: 40px;
 }
@@ -60,7 +59,7 @@ audio {
 
 
 
-/* Playback Controls */
+
 .playback-controls {
     display: flex;
     justify-content: center;
@@ -90,20 +89,20 @@ audio {
     transform: scale(1.1);
 }
 
-/* Play/Pause Button */
+
 .play-pause::before {
-    content: "▶"; /* Default play icon */
+    content: "▶"; 
     font-size: 24px;
     color: rgb(33, 37, 41);
     transition: color 0.3s ease;
 }
 
 .play-pause.playing::before {
-    content: "⏸"; /* Pause icon when playing */
+    content: "⏸"; 
     color: rgb(255, 255, 255);
 }
 
-/* Progress Bar */
+
 .progress-bar {
     flex: 1;
     height: 8px;
@@ -132,7 +131,7 @@ audio {
 }
 
 
-/* Playback Timing */
+
 .playback-timing {
     display: flex;
     justify-content: space-between;
@@ -149,7 +148,7 @@ body.dark-theme .playback-timing {
 
 
 
-/* Dark Theme for Playback Controls */
+
 body.dark-theme .playback-controls {
     background-color: rgb(33, 37, 41);
 }
@@ -164,7 +163,7 @@ body.dark-theme .control-button:hover {
     color: rgb(255, 255, 255);
 }
 
-/* Dark Theme for Progress Bar */
+
 body.dark-theme .progress-bar {
     background-color: rgb(85, 85, 85);
 }
@@ -177,7 +176,7 @@ body.dark-theme .progress-bar::-moz-range-thumb {
     background-color: rgb(102, 178, 255);
 }
 
-/* Dark Theme for Playback Timing */
+
 body.dark-theme .playback-timing {
     color: rgb(153, 153, 153);
 }

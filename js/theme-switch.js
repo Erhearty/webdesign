@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const themeSwitchCheckbox = document.getElementById("theme-switch");
 
-    // Theme switch logic
+
     const currentTheme = localStorage.getItem("theme");
     if (currentTheme) {
         document.body.classList.add(currentTheme);
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("theme", theme);
     });
 
-    // Testimonial slider logic
+
     const testimonials = document.querySelectorAll(".testimonial-item");
     const nextButton = document.querySelector(".next-testimonial-btn");
     let currentIndex = 0;
@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
         testimonials[currentIndex].classList.add("active");
     }
 
-    // Automatically slide every 5 seconds
+
     setInterval(showNextTestimonial, 5000);
 
-    // Manually slide to the next testimonial
+
     nextButton.addEventListener("click", showNextTestimonial);
 
 });

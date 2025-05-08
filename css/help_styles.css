@@ -1,17 +1,17 @@
-/* Container */
+
 .container {
     margin: 0 auto;
     padding: 20px;
     text-align: center;
 }
 
-/* Help Wrapper */
+
 .help-wrapper {
     display: flex;
     gap: 20px;
 }
 
-/* Table of Contents */
+
 .toc {
     position: sticky;
     top: 100px;
@@ -53,19 +53,20 @@
     font-weight: bold;
 }
 
-/* Help Content */
+
 .help-content {
     flex: 1;
 }
 
-/* Highlight Active Section */
+
+
 .toc ul li a.active {
     color: rgb(0, 86, 179);
     font-weight: bold;
     text-decoration: underline;
 }
 
-/* Dark Theme */
+
 body.dark-theme .toc {
     background-color: rgb(33, 37, 41);
     border: 1px solid rgb(85, 85, 85);

@@ -8,7 +8,7 @@
     <script defer src="js/theme-switch.js"></script>
     <script defer src="js/hamburger.js"></script>
     <style>
-        /* Features Section */
+
         .features {
             padding: 40px 20px;
             background-color: rgb(255, 255, 255);
@@ -49,7 +49,7 @@
             position: relative;
         }
 
-        /* Dark Theme Features */
+
         body.dark-theme .features {
             background-color: rgb(18, 18, 18);
         }
@@ -72,7 +72,6 @@
         }
 
         /* Secure Icon Animation */
-        /* :::::::::::::: Secure Icon Animation :::::::::::::: */
         .secure-icon {
             display: flex;
             align-items: center;
@@ -86,7 +85,6 @@
             overflow: hidden;
         }
 
-        /* :::::::::::::: Presentation CSS :::::::::::::: */
         * {
             margin: 0;
             padding: 0;
@@ -95,7 +93,7 @@
             --unlocked-color: #ff5153;
         }
 
-        /* Locked State */
+
         .lock {
             width: 24px;
             height: 21px;
@@ -133,12 +131,12 @@
             transition: all 0.1s ease-in-out;
         }
 
-        /* Locked Hover */
+
         .lock:hover:before {
             height: 12px;
         }
 
-        /* Unlocked State */
+
         .unlocked {
             transform: rotate(10deg);
         }
@@ -156,7 +154,7 @@
             background: var(--unlocked-color);
         }
 
-        /* Unlocked Hover */
+
         .unlocked:hover {
             transform: rotate(3deg);
         }
@@ -271,7 +269,7 @@
             border-radius: 50%;
             transform: translateX(-50%);
             animation: rise 3s ease-in-out infinite;
-            z-index: 1; /* Lower layer */
+            z-index: 1; 
         }
 
         .cloud {
@@ -281,9 +279,9 @@
             width: 60px;
             height: 10px;
             background-color: rgb(255, 255, 255);
-            border-radius: 50%; /* Makes the cloud circular */
+            border-radius: 50%; 
             transform: translateX(-50%);
-            z-index: 2; /* Upper layer */
+            z-index: 2; 
         }
 
         .cloud:before,
@@ -326,7 +324,7 @@
             }
         }
 
-        /* Hamburger Menu */
+
         .hamburger-menu {
             display: none;
             flex-direction: column;
@@ -345,14 +343,15 @@
             border-radius: 2px;
             transition: all 0.3s ease;
         }
+
         /* Mobile Style */
         @media (max-width: 768px) {
             header .container {
-                flex-wrap: wrap; /* Allows wrapping for smaller screens */
+                flex-wrap: wrap; 
             }
 
             header .nav-links {
-                display: none; /* Hidden by default on smaller screens */
+                display: none; 
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
@@ -364,11 +363,11 @@
             }
 
             header .nav-links.open {
-                display: flex; /* Displayed when the hamburger menu is active */
+                display: flex; 
             }
 
             .hamburger-menu {
-                display: flex; /* Displayed on smaller screens */
+                display: flex;
             }
         }
 
@@ -402,7 +401,7 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
+
         <section class="hero">
             <div class="container">
                 <h1>Remote PC Control</h1>
@@ -411,7 +410,6 @@
             </div>
         </section>
 
-        <!-- Features Section -->
         <section class="features">
             <div class="container">
                 <h2>Why Choose Remote PC Control?</h2>
@@ -443,7 +441,7 @@
             </div>
         </section>
 
-        <!-- Use Cases Section -->
+
         <section class="use-cases">
             <div class="container">
                 <h2>What Can You Do?</h2>
@@ -464,7 +462,7 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
+
         <section class="testimonials">
             <div class="container">
                 <h2>What Our Users Say</h2>
@@ -491,7 +489,7 @@
             </div>
         </section>
 
-        <!-- Showcase Section -->
+
         <section class="showcase">
             <div class="container">
                 <h2>See It in Action</h2>
@@ -504,7 +502,7 @@
             </div>
         </section>
 
-        <!-- Call to Action Section -->
+
         <section class="cta">
             <div class="container">
                 <h2>Ready to Get Started?</h2>
@@ -532,13 +530,13 @@
         }
     </script>
     <script>
-        // Secure Icon Animation Logic
+
         document.addEventListener("DOMContentLoaded", () => {
             const lockElement = document.querySelector(".lock");
     
             setInterval(() => {
                 lockElement.classList.toggle("unlocked");
-            }, 1000); // Toggles every 3 seconds
+            }, 1000); 
         });
     </script>
 </body>

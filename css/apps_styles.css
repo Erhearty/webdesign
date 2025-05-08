@@ -1,41 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap');
 
 
-/* Page Background */
 body {
-    background: linear-gradient(135deg, rgb(240, 248, 255), rgb(224, 236, 255)); /* Gradient background */
-    background-attachment: fixed; /* Keeps the background fixed while scrolling */
-    background-size: cover; /* Ensures the background covers the entire page */
-    color: rgb(33, 37, 41); /* Default text color */
+    background: linear-gradient(135deg, rgb(240, 248, 255), rgb(224, 236, 255));
+    background-attachment: fixed; 
+    background-size: cover; 
+    color: rgb(33, 37, 41); 
 }
 
 
-/* App Grid Background */
 .apps-grid {
-    background: linear-gradient(135deg, rgb(240, 248, 255), rgb(224, 236, 255)); /* Gradient background */
+    background: linear-gradient(135deg, rgb(240, 248, 255), rgb(224, 236, 255));
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* App Item */
+
 .app-item {
-    display: grid; /* Use CSS Grid for layout */
-    grid-template-columns: 200px auto; /* Reserve 200px for the left column and let the right column take the remaining space */
-    gap: 20px; /* Add spacing between columns */
-    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    display: grid; 
+    grid-template-columns: 200px auto;
+    gap: 20px; 
+    background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgb(222, 226, 230);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    align-items: center; /* Vertically center content */
+    align-items: center; 
 }
 
 .app-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .app-item:hover {
@@ -43,9 +41,9 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* App Item Paragraph Styling */
+
 .app-item p {
-    font-family: 'Poppins', sans-serif; /* Use Poppins for a modern look */
+    font-family: 'Poppins', sans-serif; 
     font-size: 24px;
     line-height: 1.6;
     color: rgb(73, 80, 87);
@@ -54,7 +52,7 @@ body {
 }
 
 
-/* Left Section */
+
 .app-left {
     text-align: center;
 }
@@ -70,7 +68,7 @@ body {
     color: rgb(33, 37, 41);
 }
 
-/* Right Section */
+
 .app-right {
     text-align: left;
 }
@@ -98,7 +96,7 @@ body {
     margin-bottom: 5px;
 }
 
-/* Dark Theme */
+
 body.dark-theme .app-item {
     background-color: rgb(33, 37, 41);
     border: 1px solid rgb(85, 85, 85);
@@ -114,14 +112,14 @@ body.dark-theme .app-right ul li {
     color: rgb(153, 153, 153);
 }
 
-/* Header Section */
+
 .apps h1 {
     font-size: 36px;
-    text-align: center; /* Center the text horizontally */
+    text-align: center; 
     font-weight: bold;
-    margin: 30px auto; /* Add auto margins to center the element */
+    margin: 30px auto; 
     color: rgb(33, 37, 41);
-    width: 100%; /* Ensure it spans the full width of the container */
+    width: 100%; 
 }
 
 body.dark-theme .apps h1 {
@@ -129,59 +127,59 @@ body.dark-theme .apps h1 {
 }
 
 
-/* Dark Theme Background */
+
 body.dark-theme {
-    background: linear-gradient(135deg, rgb(33, 37, 41), rgb(18, 18, 18)); /* Dark gradient background */
+    background: linear-gradient(135deg, rgb(33, 37, 41), rgb(18, 18, 18)); 
 }
 
 body.dark-theme .apps h1 {
     color: rgb(224, 224, 224);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjusted shadow for dark theme */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 body.dark-theme .apps-grid {
-    background: rgba(33, 37, 41, 0.9); /* Semi-transparent dark background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    background: rgba(33, 37, 41, 0.9); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 body.dark-theme .app-item {
-    background: rgba(33, 37, 41, 0.8); /* Slightly transparent dark background */
+    background: rgba(33, 37, 41, 0.8); 
     border: 1px solid rgb(85, 85, 85);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 body.dark-theme .app-item:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); 
 }
 
 
 
 
 
-/* Modal Styles */
+
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5); 
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-/* Blur Background */
+
 body.modal-open main,
 body.modal-open header {
-    filter: blur(5px); /* Apply blur effect only to the main content and header */
-    pointer-events: none; /* Disable interactions with the background */
+    filter: blur(5px); 
+    pointer-events: none; 
 }
 
 body.modal-open .modal {
-    filter: none; /* Ensure modals are not blurred */
-    pointer-events: auto; /* Enable interactions with the modal */
+    filter: none; 
+    pointer-events: auto;
 }
 
 .modal-content {
@@ -191,8 +189,8 @@ body.modal-open .modal {
     text-align: center;
     width: 90%;
     max-width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    animation: fadeIn 0.3s ease; /* Smooth fade-in animation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
 }
 
 .modal-content h2 {
@@ -233,7 +231,7 @@ body.modal-open .modal {
     color: rgb(33, 37, 41);
 }
 
-/* Dark Theme Modal */
+
 body.dark-theme .modal-content {
     background-color: rgb(33, 37, 41);
     color: rgb(224, 224, 224);
@@ -262,7 +260,7 @@ body.dark-theme .modal-content .close-button {
     color: rgb(224, 224, 224);
 }
 
-/* Fade-in Animation */
+
 @keyframes fadeIn {
     from {
         opacity: 0;

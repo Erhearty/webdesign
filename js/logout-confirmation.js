@@ -6,23 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmLogoutButton = document.getElementById('confirm-logout');
     const cancelLogoutButton = document.getElementById('cancel-logout');
 
-    // Function to center the modal
     function centerModal(modal) {
-        modal.style.display = 'flex'; // Ensure the modal is visible
+        modal.style.display = 'flex'; 
         modal.style.justifyContent = 'center';
         modal.style.alignItems = 'center';
-        document.body.classList.add('modal-open'); // Blur the background
+        document.body.classList.add('modal-open'); 
     }
 
-    // Function to close the modal
+
     function closeModal(modal) {
         modal.style.display = 'none';
-        document.body.classList.remove('modal-open'); // Remove blur effect
+        document.body.classList.remove('modal-open'); 
     }
 
     logoutLink.addEventListener('click', (event) => {
         event.preventDefault();
-        centerModal(logoutModal); // Show the confirmation modal
+        centerModal(logoutModal); 
     });
 
     closeButton.addEventListener('click', () => {
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     confirmLogoutButton.addEventListener('click', () => {
         closeModal(logoutModal);
-        centerModal(logoutPageModal); // Show the logout page modal
+        centerModal(logoutPageModal); 
     });
 
     window.addEventListener('click', (event) => {

@@ -1,12 +1,12 @@
-/* Getting Started Page Styles */
-.getting-started-container {
+
+/* .container {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
     max-width: 900px;
     margin: 0 auto;
-}
+} */
 
 .login-container {
     background-color: rgb(255, 255, 255);
@@ -76,25 +76,15 @@
     margin-top: 20px;
 }
 
-.social-login button {
-    width: 40px;
-    height: 40px;
-    border: none;
+
+.social-login img {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
     border-radius: 50%;
-    background-color: transparent; /* Set button background to transparent */
-    cursor: not-allowed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Ensures the icon fits within the button */
+    
 }
 
-.social-login button img {
-    width: 40px; /* Adjust icon size */
-    height: 40px;
-    object-fit: contain; /* Ensures the icon scales properly */
-    background-color: transparent; /* Ensures the icon itself has no background */
-}
 
 .signup-redirect {
     margin-top: 20px;
@@ -115,12 +105,6 @@
     font-size: 14px;
 }
 
-.steps-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-}
 
 .step {
     text-align: center;
@@ -129,6 +113,9 @@
     border-radius: 8px;
     background-color: rgb(255, 255, 255);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .step:hover {
@@ -147,7 +134,35 @@
     color: rgb(73, 80, 87);
 }
 
-/* Animation for Steps */
+body.dark-theme .step {
+    background-color:rgb(33, 37, 41);
+    color: rgb(224, 224, 224);
+}
+
+body.dark-theme .step h3 {
+    color: rgb(224, 224, 224);
+}
+
+body.dark-theme .step p {
+    color: rgb(153, 153, 153);
+}
+
+
+
+body.dark-theme .login-container {
+    background-color:rgb(33, 37, 41);
+    color: rgb(224, 224, 224);
+}
+
+body.dark-theme .login-container h1 {
+
+    color: rgb(224, 224, 224);
+}
+body.dark-theme .form-group label{
+
+    color: rgb(224, 224, 224);
+}
+
 @keyframes slideIn {
     0% {
         transform: translateY(20px);
@@ -178,3 +193,4 @@
 .step:nth-child(4) {
     animation-delay: 0.6s;
 }
+

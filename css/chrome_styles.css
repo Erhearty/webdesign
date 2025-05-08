@@ -1,7 +1,7 @@
 
 
 header .nav-links {
-    display: flex !important; /* Ensure nav-links are always visible */
+    display: flex !important;
     gap: 20px;
     list-style: none;
     padding: 0;
@@ -10,7 +10,7 @@ header .nav-links {
 }
 
 
-/* Container */
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -18,9 +18,9 @@ header .nav-links {
     text-align: center;
 }
 
-/* Browser Styles */
+
 .browser {
-    background-color: rgb(48, 52, 54); /* Darker background for the browser */
+    background-color: rgb(48, 52, 54); 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -32,7 +32,7 @@ header .nav-links {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: rgb(66, 69, 73); /* Header background */
+    background-color: rgb(66, 69, 73); 
     border-bottom: 1px solid rgb(85, 85, 85);
 }
 
@@ -64,7 +64,7 @@ header .nav-links {
     padding: 20px;
     text-align: left;
     color: rgb(224, 224, 224);
-    text-align: center; /* Center align the list items */
+    text-align: center; 
 
 }
 
@@ -96,11 +96,11 @@ header .nav-links {
     font-size: 14px;
     color: rgb(192, 192, 192);
     margin-bottom: 5px;
-    text-align: left; /* Center align the list items */
+    text-align: left;
 
 }
 
-/* Incognito Icon */
+
 .incognito-icon {
     width: 80px;
     height: 80px;
@@ -109,11 +109,11 @@ header .nav-links {
 }
 
 
-/* Popup Styles */
+
 .popup {
     position: fixed;
-    width: 350px; /* Increased width */
-    height: 200px; /* Increased height */
+    width: 350px; 
+    height: 200px; 
     padding: 20px;
     background-color: rgb(255, 0, 0);
     color: white;
@@ -122,7 +122,7 @@ header .nav-links {
     z-index: 1000;
     animation: fadeIn 0.5s ease;
     overflow: hidden;
-    text-align: center; /* Center-align the text */
+    text-align: center; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,10 +132,10 @@ header .nav-links {
 
 .popup p {
     margin: 0 0 15px;
-    font-size: 18px; /* Increased font size */
+    font-size: 18px; 
 }
 
-/* Close Button */
+
 .popup .close-btn {
     position: absolute;
     top: 10px;
@@ -143,7 +143,7 @@ header .nav-links {
     background-color: transparent;
     color: white;
     border: none;
-    font-size: 16px; /* Small X */
+    font-size: 16px; 
     font-weight: bold;
     cursor: pointer;
     padding: 0;
@@ -154,7 +154,7 @@ header .nav-links {
     color: rgb(255, 200, 200);
 }
 
-/* Fade-in animation */
+
 @keyframes fadeIn {
     from {
         opacity: 0;

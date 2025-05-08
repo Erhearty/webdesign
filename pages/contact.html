@@ -54,7 +54,7 @@
                     <button type="submit" class="btn">Send Message</button>
                 </form>
                 
-                <!-- Popup -->
+
                 <div id="popup" class="popup hidden">
                     <div class="popup-content">
                         <p id="popup-message"></p>
@@ -90,23 +90,23 @@
 
     <script>
         function showPopup(event) {
-            event.preventDefault(); // Prevent the form from submitting
+            event.preventDefault(); 
     
-            const name = document.getElementById('name').value; // Get the name from the form
+            const name = document.getElementById('name').value; 
             const popupMessage = document.getElementById('popup-message');
             const popup = document.getElementById('popup');
-            const form = event.target; // Get the form element
+            const form = event.target; 
     
-            // Set the popup message with the user's name
+
             popupMessage.textContent = `Thank you, ${name}! We will contact you soon.`;
     
-            // Show the popup
+
             popup.classList.remove('hidden');
     
-            // Clear the form fields
+
             form.reset();
     
-            // Automatically hide the popup after 2 seconds
+
             setTimeout(() => {
                 popup.classList.add('hidden');
             }, 2000);

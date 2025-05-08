@@ -12,7 +12,6 @@
     <header class="sticky-header">
         <nav>
             <div class="container">
-                <!-- <a href="index.html" class="logo">Remote PC Control</a> -->
                 <ul class="nav-links">
                     <li><a href="../pages/apps.html" class="active">Go back</a></li>
                     <li><a href="../pages/help.html">Help</a></li>
@@ -77,16 +76,16 @@
                     <p>MS Defender saved your day)</p>
                     <button class="close-btn">X</button>
                 `;
-                popup.style.backgroundColor = "rgb(0, 128, 0)"; // Green background for the final popup
+                popup.style.backgroundColor = "rgb(0, 128, 0)"; 
 
-                // Center the final popup in the browser-content container
+
                 const browserContent = document.getElementById('browser-content');
                 const contentRect = browserContent.getBoundingClientRect();
-                popup.style.left = `${contentRect.left + contentRect.width / 2 - 175}px`; // Center horizontally (popup width = 350px)
-                popup.style.top = `${contentRect.top + contentRect.height / 2 - 100}px`; // Center vertically (popup height = 200px)
+                popup.style.left = `${contentRect.left + contentRect.width / 2 - 175}px`; 
+                popup.style.top = `${contentRect.top + contentRect.height / 2 - 100}px`; 
                 popup.style.position = "absolute";
 
-                // Clear all existing popups
+
                 document.querySelectorAll('.popup').forEach(p => p.remove());
             } else {
                 popup.innerHTML = `
@@ -94,25 +93,24 @@
                     <button class="close-btn">X</button>
                 `;
 
-                // Get the dimensions and position of the browser-content container
+
                 const browserContent = document.getElementById('browser-content');
                 const contentRect = browserContent.getBoundingClientRect();
 
-                // Calculate random position within the browser-content container
-                const randomX = Math.random() * (contentRect.width - 350); // Subtract popup width
-                const randomY = Math.random() * (contentRect.height - 200); // Subtract popup height
+                const randomX = Math.random() * (contentRect.width - 350); 
+                const randomY = Math.random() * (contentRect.height - 200);
 
-                // Adjust position to account for the browser-content's position
+
                 popup.style.left = `${contentRect.left + randomX}px`;
                 popup.style.top = `${contentRect.top + randomY}px`;
                 popup.style.position = "absolute";
             }
 
-            // Append the popup to the browser-content container
+
             const browserContent = document.getElementById('browser-content');
             browserContent.appendChild(popup);
 
-            // Add close button functionality
+
             popup.querySelector('.close-btn').addEventListener('click', () => {
                 popup.remove();
             });
@@ -132,7 +130,7 @@
             }, 100);
         }
     
-        // Trigger popups when the Enter key is pressed in the address bar
+
         document.getElementById('address-bar').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 startPopups();

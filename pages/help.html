@@ -155,26 +155,26 @@
             const tocLinks = document.querySelectorAll(".toc ul li a");
             const sections = document.querySelectorAll("main section");
     
-            // Adjust scroll position for sticky header
+
             tocLinks.forEach((link) => {
                 link.addEventListener("click", (event) => {
-                    event.preventDefault(); // Prevent default anchor behavior
-                    const targetId = link.getAttribute("href").substring(1); // Get the target section ID
+                    event.preventDefault(); 
+                    const targetId = link.getAttribute("href").substring(1); 
                     const targetSection = document.getElementById(targetId);
     
                     if (targetSection) {
-                        const offset = 75; // Height of the sticky header
+                        const offset = 75;
                         const targetPosition = targetSection.offsetTop - offset;
     
                         window.scrollTo({
                             top: targetPosition,
-                            behavior: "smooth", // Smooth scrolling
+                            behavior: "smooth",
                         });
                     }
                 });
             });
     
-            // Highlight the current section in the TOC
+
             function highlightCurrentSection() {
                 let index = sections.length;
     
@@ -185,7 +185,7 @@
             }
     
             window.addEventListener("scroll", highlightCurrentSection);
-            highlightCurrentSection(); // Highlight on page load
+            highlightCurrentSection(); 
         });
     </script>
 </body>
